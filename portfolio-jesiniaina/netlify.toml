@@ -20,11 +20,11 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
-# Images : cache long (le nom change quand on remplace une photo depuis l'admin)
+# Images : toujours revalidées (une photo ajoutée depuis l'admin apparaît tout de suite)
 [[headers]]
   for = "/assets/images/*"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 # Sécurité de base
 [[headers]]

@@ -5,6 +5,10 @@
 (function () {
   var exts = ["jpg", "jpeg", "png", "webp"];
   var map = (window.SITE_CONFIG && window.SITE_CONFIG.images) || {};
+  /* Numéro de version = date de la dernière publication : chaque publication force
+     le navigateur à recharger les images (évite d'afficher une ancienne réponse en cache). */
+  var stamp = window.SITE_CONFIG && window.SITE_CONFIG.publishedAt;
+  var v = stamp ? "?v=" + encodeURIComponent(String(stamp).replace(/\D/g, "").slice(0, 14)) : "";
 
   function show(slot, src) {
     var img = document.createElement("img");
@@ -29,8 +33,8 @@
     var dir = def.slice(0, def.lastIndexOf("/") + 1);              // assets/images/hero/
     var list = [];
     if (map[key] && /^(blob:|data:|https?:)/.test(map[key])) list.push(map[key]);         // aperçu de l'admin / image externe
-    else if (map[key]) list.push(dir + encodeURIComponent(map[key]).replace(/%2F/g, "/"));
-    exts.forEach(function (e) { list.push(base + "." + e); });
+    else if (map[key]) list.push(dir + encodeURIComponent(map[key]).replace(/%2F/g, "/") + v);
+    exts.forEach(function (e) { list.push(base + "." + e + v); });
     tryList(slot, list, 0);
   });
 })();
