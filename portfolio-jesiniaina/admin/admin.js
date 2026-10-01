@@ -18,7 +18,7 @@
 var AC = window.ADMIN_CONFIG || {};
 var $ = function (s) { return document.querySelector(s); };
 var EXTS = ["jpg", "jpeg", "png", "webp"];
-var ROOT = (AC.root || "").replace(/^\/+|\/+$/g, "");           // sous-dossier du site dans le dépôt
+var ROOT = (AC.root || "").replace(/^\/+|\/+$/g, "");      // détecté automatiquement si vide (voir findRoot)           // sous-dossier du site dans le dépôt
 function rp(p) { return ROOT ? ROOT + "/" + p : p; }              // chemin dans le dépôt
 
 function el(tag, attrs, kids) {
@@ -103,6 +103,10 @@ function GitHubBackend(repo, branch, token) {
     readBlob: async function (p) {
       try { return await (await gh("/contents/" + enc(rp(p)) + q, { accept: "application/vnd.github.raw+json", raw: true })).blob(); }
       catch (e) { if (e.status === 404) return null; throw e; }
+    },
+    listDirs: async function (dir) {
+      try { var d = await gh("/contents" + (dir ? "/" + enc(rp(dir)) : "") + q); return Array.isArray(d) ? d.filter(function (x) { return x.type === "dir"; }).map(function (x) { return x.name; }) : []; }
+      catch (e) { if (e.status === 404) return []; throw e; }
     },
     list: async function (dir) {
       try { var d = await gh("/contents/" + enc(rp(dir)) + q); return Array.isArray(d) ? d.filter(function (x) { return x.type === "file"; }).map(function (x) { return x.name; }) : []; }
@@ -930,9 +934,27 @@ $("#logout").onclick = function () {
 
 function renderAll() { renderLinks(); renderTheme(); renderStyle(); renderSections(); renderTexts(); renderImages(); }
 
+/* Le site peut être à la racine du dépôt ou dans un sous-dossier (ex. « portfolio-jesiniaina/ »).
+   On cherche le dossier qui contient assets/js/config.js. */
+async function findRoot(b) {
+  if (b.kind !== "github") return true;
+  try { await b.readText("assets/js/config.js"); return true; } catch (e) { if (e.status !== 404) throw e; }
+  if (ROOT) { var keep = ROOT; ROOT = ""; try { await b.readText("assets/js/config.js"); return true; } catch (e) { ROOT = keep; } }
+  var saved = ROOT; ROOT = "";
+  var dirs = await b.listDirs("");
+  for (var i = 0; i < dirs.length; i++) {
+    ROOT = dirs[i];
+    try { await b.readText("assets/js/config.js"); return true; } catch (e) { if (e.status !== 404) { ROOT = saved; throw e; } }
+  }
+  ROOT = saved;
+  var er = new Error("Le dépôt est accessible, mais le portfolio n'y est pas : fichier assets/js/config.js introuvable " +
+    "(ni à la racine, ni dans un sous-dossier). Envoyez sur GitHub le contenu du dossier portfolio-jesiniaina (index.html, admin, assets…).");
+  er.status = 404; throw er;
+}
 async function openBackend(b) {
   backend = b;
   status("⏳ Chargement…");
+  await findRoot(b);
   cfg = await readCfg();
   doc = new DOMParser().parseFromString(await backend.readText("index.html"), "text/html");
   await readTokens();
@@ -941,7 +963,7 @@ async function openBackend(b) {
   ["#backup", "#logout"].forEach(function (s) { $(s).hidden = false; });
   $("#publish").hidden = backend.kind === "local";
   if (backend.kind === "local") $("#p-images .help").innerHTML = "Choisissez une photo : elle est copiée dans le bon dossier, enregistrée et affichée aussitôt. Les photos lourdes sont <b>automatiquement optimisées</b> pour le web.";
-  $("#where").textContent = "· " + backend.label;
+  $("#where").textContent = "· " + backend.label + (ROOT ? " / " + ROOT : "");
   renderAll(); updateBar();
   reloadPreview();
   status(backend.kind === "github" ? "Connecté ✔ — modifiez puis cliquez sur « Publier »" : "Dossier connecté ✔ — chaque modification est enregistrée automatiquement", "ok");
