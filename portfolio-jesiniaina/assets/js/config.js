@@ -31,7 +31,7 @@ window.SITE_CONFIG = {
     "buttons": "contour",
     "btnShape": "carre",
     "border": "fine",
-    "photos": "teinte",
+    "photos": "normal",
     "bg": "uni",
     "anim": "douce",
     "density": "aere",
@@ -44,7 +44,7 @@ window.SITE_CONFIG = {
     "toTop": true,
     "counters": true,
     "waFloat": false,
-    "preset": "prestige"
+    "preset": "perso"
   },
   "sections": {},
   "texts": {},
@@ -58,7 +58,7 @@ window.SITE_CONFIG = {
     "nexoria/equipe": "",
     "nexoria/plateforme": "",
     "nexoria/nexobot": "",
-    "logos/nexoria": "",
+    "logos/nexoria": "logo_corr.png",
     "projets/iscam-assist": "",
     "projets/escm": "",
     "projets/academic-lab": "",
@@ -68,5 +68,5 @@ window.SITE_CONFIG = {
     "temoignages/temoin-2": "",
     "temoignages/temoin-3": ""
   },
-  "publishedAt": "2026-10-01T12:07:40.651Z"
+  "publishedAt": "2026-10-01T12:13:16.018Z"
 };
