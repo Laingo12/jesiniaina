@@ -1,0 +1,48 @@
+# ============================================================
+# Netlify — site statique, aucune compilation nécessaire.
+# Chaque publication depuis /admin crée un commit sur GitHub ;
+# Netlify redéploie alors automatiquement le site.
+# ============================================================
+[build]
+  publish = "."
+  command = ""
+
+# Back-office : jamais indexé par Google, jamais mis en cache
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+
+# Réglages du site : toujours la dernière version
+[[headers]]
+  for = "/assets/js/config.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Images : cache long (le nom change quand on remplace une photo depuis l'admin)
+[[headers]]
+  for = "/assets/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# Sécurité de base
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Fichiers internes à ne pas exposer
+[[redirects]]
+  from = "/netlify.toml"
+  to = "/404.html"
+  status = 404
+  force = true
+[[redirects]]
+  from = "/README.md"
+  to = "/404.html"
+  status = 404
+  force = true

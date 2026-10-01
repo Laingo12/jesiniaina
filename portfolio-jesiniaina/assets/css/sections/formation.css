@@ -1,0 +1,11 @@
+/* FORMATION */
+.train-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.train-block h3{font-size:1.1rem;margin:0 0 12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.train-block h3 time{font-size:.85rem;color:var(--ink-soft);font-weight:500}
+.train-block + .train-block{margin-top:32px}
+.clients{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.client-item{padding:14px 16px;border:var(--bw) var(--bs) var(--border-color);border-radius:min(12px,var(--radius));background:var(--surface)}
+.client-item strong{display:block;font-size:.92rem;color:var(--violet)}
+.client-item small{font-size:.83rem;color:var(--ink-soft)}
+@media (max-width:900px){ .train-grid{grid-template-columns:1fr} }
+@media (max-width:520px){ .clients{grid-template-columns:1fr} }

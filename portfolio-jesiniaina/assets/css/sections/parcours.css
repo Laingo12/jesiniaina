@@ -1,0 +1,13 @@
+/* PARCOURS */
+.parcours{background:var(--lavender)}
+.timeline{position:relative;margin-top:40px;padding-left:32px;border-left:2px solid var(--lavender-2)}
+.t-item{position:relative;padding-bottom:30px}
+.t-item:last-child{padding-bottom:0}
+.t-item::before{content:"";position:absolute;left:-41px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--surface);border:3px solid var(--indigo)}
+.t-item.edu::before{border-color:var(--violet);background:var(--violet)}
+.t-year{font-size:.8rem;font-weight:700;color:var(--accent-text);letter-spacing:.05em}
+.t-item h4{font-size:1.05rem;margin:2px 0 4px}
+.t-item p{color:var(--ink-soft);font-size:.92rem}
+.legend{display:flex;gap:20px;font-size:.82rem;color:var(--ink-soft);margin-top:10px}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle;border:2px solid var(--indigo)}
+.legend span.edu::before{background:var(--violet);border-color:var(--violet)}

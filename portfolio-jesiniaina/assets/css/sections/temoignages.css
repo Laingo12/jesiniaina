@@ -1,0 +1,8 @@
+/* TÉMOIGNAGES */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.quote{background:var(--surface);border:var(--bw) var(--bs) var(--border-color);border-top:4px solid var(--indigo);border-radius:var(--radius);padding:26px}
+.quote p{font-size:1rem;font-style:italic;margin-bottom:18px}
+.quote .who{display:flex;align-items:center;gap:12px;font-size:.86rem}
+.quote .who .img-slot{width:48px;height:48px;aspect-ratio:auto;border-radius:50%;flex:0 0 48px}
+.quote .who .img-slot::after{content:""}
+@media (max-width:900px){ .quotes{grid-template-columns:1fr} }

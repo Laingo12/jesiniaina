@@ -1,0 +1,8 @@
+/* CONTACT */
+.contact{background:linear-gradient(135deg,var(--violet-dark),var(--violet));color:#fff;text-align:center}
+.contact .lead{color:#fff;opacity:.9;margin:0 auto 30px}
+.contact-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.contact-info{margin-top:26px;font-size:.92rem;opacity:.85}
+footer{background:var(--violet-dark);color:#fff;padding:22px 0;font-size:.8rem}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer .motto{letter-spacing:.14em;text-transform:uppercase;font-weight:600}

@@ -1,0 +1,24 @@
+/* Navigation */
+nav{position:sticky;top:0;z-index:50;background:var(--nav-bg);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:background .3s,border-color .3s;border-bottom:1px solid var(--lavender-2)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{font-weight:800;font-size:1.05rem;text-decoration:none;letter-spacing:.02em}
+.brand span{color:var(--accent-text)}
+.brand span.brand-name{color:inherit}
+nav ul{display:flex;gap:26px;list-style:none;font-size:.9rem;font-weight:500}
+nav ul a{text-decoration:none;color:var(--ink-soft)}
+nav ul a:hover{color:var(--accent-text)}
+
+.nav-toggle{display:none;width:44px;height:44px;border:0;background:none;cursor:pointer;position:relative}
+.nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{content:"";position:absolute;left:11px;width:22px;height:2px;background:var(--violet);transition:.2s}
+.nav-toggle span{top:21px}.nav-toggle span::before{top:-7px;left:0}.nav-toggle span::after{top:7px;left:0}
+nav ul a.active{color:var(--accent-text)}
+@media (max-width:900px){
+  .nav-toggle{display:block}
+  nav .btn{display:none}
+  nav ul{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:var(--surface);border-bottom:1px solid var(--lavender-2);padding:8px 24px 16px}
+  nav ul a{display:block;padding:12px 0}
+  nav.open ul{display:flex}
+  nav.open .nav-toggle span{background:transparent}
+  nav.open .nav-toggle span::before{top:0;transform:rotate(45deg)}
+  nav.open .nav-toggle span::after{top:0;transform:rotate(-45deg)}
+}

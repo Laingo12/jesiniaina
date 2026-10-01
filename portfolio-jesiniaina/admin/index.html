@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Back-office — Portfolio</title>
+<!--
+  BACK-OFFICE DU PORTFOLIO  —  https://<site>.netlify.app/admin
+  • En ligne : connexion avec un jeton GitHub. Les modifications sont publiées en UN commit
+    sur le dépôt ; Netlify redéploie automatiquement le site (≈ 30 s).
+  • En local (fichier ouvert sur l'ordinateur) : possibilité de travailler sur un dossier (Edge / Chrome).
+  • Réglages du dépôt : admin/admin-config.js
+  • Logique : admin/admin.js · styles : admin/admin.css
+  • Le back-office découvre automatiquement dans index.html les textes [data-edit],
+    sections [data-section][data-optional] et images [data-img].
+-->
+<script>
+  // /admin -> /admin/ (les chemins relatifs ont besoin de la barre finale)
+  if (/^https?:$/.test(location.protocol) && !/\/$/.test(location.pathname) && !/\.html$/.test(location.pathname)) location.replace(location.pathname + "/" + location.search + location.hash);
+</script>
+<link rel="stylesheet" href="admin.css">
+<script src="admin-config.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Back-office — Portfolio <span class="where" id="where"></span></h1>
+  <span id="status"></span>
+  <a href="../" target="_blank" id="siteLink">Voir le site ↗</a>
+  <button id="discard" class="ghost" hidden title="Annuler toutes les modifications non publiées">↺ Annuler</button>
+  <button id="publish" class="pub" hidden disabled>🚀 Publier <span class="count" id="count">0</span></button>
+  <button id="backup" class="ghost ico" hidden title="Télécharger une copie des réglages (config.js)">💾</button>
+  <button id="logout" class="ghost ico" hidden title="Se déconnecter">⏻</button>
+</header>
+
+<!-- ======================= CONNEXION ======================= -->
+<div id="login" hidden>
+  <h2>Connexion</h2>
+  <p class="help">Vos modifications sont enregistrées sur GitHub, puis Netlify met le site à jour automatiquement.</p>
+  <div id="loginErr" hidden></div>
+  <div class="field"><label class="f" for="lgRepo">Dépôt GitHub</label><input type="text" id="lgRepo" placeholder="compte/portfolio-jesiniaina" autocomplete="off"></div>
+  <div class="field"><label class="f" for="lgBranch">Branche</label><input type="text" id="lgBranch" placeholder="main" autocomplete="off"></div>
+  <div class="field"><label class="f" for="lgToken">Jeton d'accès GitHub</label><input type="password" id="lgToken" placeholder="github_pat_…" autocomplete="off"></div>
+  <label class="remember"><input type="checkbox" id="lgRemember" checked> Se souvenir de moi sur cet ordinateur</label>
+  <button id="lgGo" style="width:100%;justify-content:center;padding:11px">Se connecter</button>
+  <details>
+    <summary>Comment obtenir mon jeton d'accès ?</summary>
+    <ol>
+      <li>Sur GitHub : photo de profil → <b>Settings</b> → <b>Developer settings</b> → <b>Personal access tokens</b> → <b>Fine-grained tokens</b> → <b>Generate new token</b>.</li>
+      <li>Nom : « Portfolio admin » · Expiration : 1 an.</li>
+      <li><b>Repository access</b> : « Only select repositories » → choisir le dépôt du portfolio.</li>
+      <li><b>Permissions</b> → <b>Contents</b> : « Read and write ».</li>
+      <li>Générer, copier le jeton (il commence par <code>github_pat_</code>) et le coller ici.</li>
+    </ol>
+    Le jeton ne donne accès qu'à ce dépôt. Ne le partagez avec personne.
+  </details>
+  <div id="localWrap" hidden>
+    <div class="or">ou</div>
+    <button id="lgLocal" class="ghost" style="width:100%;justify-content:center;padding:10px">📁 Travailler sur un dossier de cet ordinateur</button>
+    <div class="note" id="browserNote">Mode local : Microsoft Edge ou Google Chrome, sur ordinateur.</div>
+  </div>
+</div>
+
+<!-- ======================= APPLICATION ======================= -->
+<div id="app" hidden>
+  <div id="editor">
+    <div id="draftBar" hidden></div>
+    <nav class="tabs" id="tabs">
+      <button data-tab="liens" class="on"><i>🔗</i>Liens</button>
+      <button data-tab="style"><i>✨</i>Style</button>
+      <button data-tab="apparence"><i>🎨</i>Couleurs</button>
+      <button data-tab="sections"><i>🧩</i>Sections</button>
+      <button data-tab="textes"><i>✏️</i>Textes</button>
+      <button data-tab="images"><i>🖼</i>Images</button>
+    </nav>
+
+    <!-- LIENS & CV -->
+    <div class="panel on" id="p-liens">
+      <div class="box">
+        <h2>Liens de contact</h2>
+        <p class="help">Un champ vide masque le bouton correspondant sur le site.</p>
+        <div class="field"><label class="f" for="email">E-mail</label><input type="text" id="email" placeholder="nom@domaine.com"><div class="hint">Affiché tel quel sur le bouton de la section Contact.</div></div>
+        <div class="field"><label class="f" for="whatsapp">WhatsApp</label><input type="text" id="whatsapp" placeholder="261340000000"><div class="hint">Numéro au format international, sans « + » ni espaces (ex. 261347160858).</div></div>
+        <div class="field"><label class="f" for="linkedin">LinkedIn</label><input type="text" id="linkedin" placeholder="https://www.linkedin.com/in/..."><div class="hint">Adresse complète de votre profil.</div></div>
+      </div>
+      <div class="box">
+        <h2>CV à télécharger (PDF)</h2>
+        <p class="help">Le fichier sera placé dans <code>assets/docs/</code> et relié au bouton « Télécharger mon CV » à la prochaine publication.</p>
+        <div class="fname" id="cvname" style="margin-bottom:8px"></div>
+        <div class="row"><label class="file">Choisir un PDF<input type="file" id="cvfile" accept=".pdf,application/pdf"></label><button class="ghost" id="cvclear">Retirer</button></div>
+      </div>
+    </div>
+
+    <!-- STYLE -->
+    <div class="panel" id="p-style">
+      <div class="box">
+        <h2>Thèmes prêts à l'emploi</h2>
+        <p class="help">Un clic applique un ensemble cohérent de réglages. <b>Vos couleurs sont conservées.</b> Vous pouvez ensuite ajuster chaque détail ci-dessous.</p>
+        <div class="presets" id="presets"></div>
+      </div>
+      <div id="styleBoxes"></div>
+      <div class="box switches">
+        <h2>Effets & finitions expertes</h2>
+        <p class="help">Petits détails qui font la différence sur un site professionnel.</p>
+        <div id="extras"></div>
+      </div>
+    </div>
+
+    <!-- APPARENCE -->
+    <div class="panel" id="p-apparence">
+      <div class="box">
+        <h2>Couleurs</h2>
+        <p class="help">Par défaut, ce sont les couleurs de votre CV. Cliquez sur une pastille pour la changer.</p>
+        <div id="colors"></div>
+        <div class="row" style="margin-top:12px"><button class="ghost" id="themeReset">↺ Revenir à la charte du CV</button></div>
+      </div>
+      <div class="box">
+        <h2>Typographie & formes</h2>
+        <div class="grid2">
+          <div class="field"><label class="f" for="font">Police du texte</label><select id="font"></select>
+            <div class="hint">Poppins est la police de votre CV.</div></div>
+          <div class="field"><label class="f" for="headingFont">Police des titres</label><select id="headingFont"></select>
+            <div class="hint">Ex. Playfair Display pour un style prestige.</div></div>
+        </div>
+        <div class="field"><label class="f" for="radius">Arrondi des cartes et images</label>
+          <div class="range"><input type="range" id="radius" min="0" max="32" step="2"><code id="radiusVal"></code></div></div>
+      </div>
+    </div>
+
+    <!-- SECTIONS -->
+    <div class="panel" id="p-sections">
+      <div class="box">
+        <h2>Sections affichées</h2>
+        <p class="help">Désactivez une section pour la masquer du site (son lien disparaît aussi du menu). Rien n'est supprimé : vous pouvez la réafficher à tout moment.</p>
+        <div id="toggles"></div>
+      </div>
+    </div>
+
+    <!-- TEXTES -->
+    <div class="panel" id="p-textes">
+      <div class="search"><input type="search" id="q" placeholder="🔍 Rechercher un texte (ex. NEXORIA, 2016, mission…)"></div>
+      <p class="help" style="font-size:.85rem;color:var(--soft);margin:0 0 12px">L'aperçu se met à jour en quittant le champ. <b>Champ vide = élément masqué.</b> « ↺ Rétablir » remet le texte d'origine.</p>
+      <div id="groups"></div>
+    </div>
+
+    <!-- IMAGES -->
+    <div class="panel" id="p-images">
+      <div class="box">
+        <h2>Images du site</h2>
+        <p class="help">Choisissez une photo : elle apparaît tout de suite dans l'aperçu et sera mise en ligne au clic sur « Publier ». Les photos lourdes sont <b>automatiquement optimisées</b> pour le web.</p>
+        <div class="cards" id="slots"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APERÇU -->
+  <aside id="previewPane">
+    <div id="previewBar">
+      <b>Aperçu</b><span class="sp"></span>
+      <button class="ghost" id="viewDesk">🖥 Ordinateur</button>
+      <button class="ghost" id="viewMob">📱 Mobile</button>
+      <button class="ghost" id="reload" title="Actualiser">⟳</button>
+      <button class="ghost" id="toggleGlobal" title="Afficher / masquer l'aperçu global">🗺 Global</button>
+      <button class="ghost" id="hidePrev">Masquer</button>
+    </div>
+    <div id="previewBody">
+      <div id="detailCol">
+        <div class="pv-title">🔍 Aperçu détaillé <small>cliquez sur un texte ou une image pour le modifier</small></div>
+        <div id="frameWrap"><iframe id="frame" title="Aperçu détaillé du site"></iframe></div>
+      </div>
+      <div id="globalCol">
+        <div class="pv-title">🗺 Aperçu global</div>
+        <div id="globalScroll"><div id="globalInner"><iframe id="globalFrame" title="Aperçu global de la page" tabindex="-1"></iframe></div></div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

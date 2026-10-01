@@ -1,0 +1,46 @@
+/* Charte du CV : violet + indigo + blanc. Valeurs par défaut — le back-office peut les surcharger. */
+:root{
+  --violet:#4a3b8c;        /* violet de la colonne du CV */
+  --violet-dark:#3a2d73;   /* violet foncé (fonds, dégradés) */
+  --violet-soft:#6a5bb0;
+  --indigo:#3b34d9;        /* bleu indigo des liens / accents du CV */
+  --lavender:#efedf9;      /* fond clair teinté */
+  --lavender-2:#dcd8f2;    /* bordures claires */
+  --ink:#161616;           /* texte principal (noir du CV) */
+  --ink-soft:#4a4a57;
+  --white:#ffffff;
+  --radius:16px;
+  --maxw:1180px;
+  --font:"Poppins", system-ui, -apple-system, sans-serif;
+  --font-heading:var(--font);
+
+  /* Surfaces (changent en mode sombre / verre) */
+  --bg:#ffffff;                     /* fond de page */
+  --surface:#ffffff;                /* cartes */
+  --nav-bg:rgba(255,255,255,.94);
+  --accent-text:var(--indigo);      /* texte en couleur d'accent */
+
+  /* Style (piloté par le back-office › Style) */
+  --section-pad:96px;
+  --btn-radius:999px;
+  --bw:1px; --bs:solid; --border-color:var(--lavender-2);
+  --shadow-sm:0 1px 2px rgba(23,18,60,.05),0 4px 16px rgba(23,18,60,.06);
+  --shadow-md:0 14px 34px rgba(23,18,60,.13);
+  --shadow-lg:0 18px 40px rgba(58,45,115,.3);
+}
+
+/* ---------- Mode sombre ---------- */
+html[data-mode="dark"]{
+  color-scheme:dark;
+  --bg:#0f0c1d;
+  --surface:#1a1630;
+  --lavender:#15122a;
+  --lavender-2:#2e2850;
+  --ink:#f1effa;
+  --ink-soft:#b8b3d4;
+  --nav-bg:rgba(15,12,29,.86);
+  --accent-text:color-mix(in srgb,var(--indigo) 45%,#fff);
+  --shadow-sm:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25);
+  --shadow-md:0 16px 40px rgba(0,0,0,.45);
+  --shadow-lg:0 20px 50px rgba(0,0,0,.55);
+}

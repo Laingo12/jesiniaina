@@ -1,0 +1,18 @@
+/* Valeurs, mission & AIKY */
+.values{background:var(--violet);color:#fff}
+.values-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.values .eyebrow{color:#fff}
+.values .eyebrow::before{background:#fff;box-shadow:inset 0 0 0 8px #fff,inset 0 0 0 11px var(--violet)}
+.verse{font-style:italic;font-size:1.25rem;line-height:1.5;margin:10px 0 6px}
+.verse-ref{font-size:.85rem;opacity:.75;margin-bottom:30px}
+.value-chips{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 30px}
+.value-chips span{background:#fff;color:var(--indigo);font-weight:600;padding:8px 16px;border-radius:6px;font-size:.9rem}
+.values p{opacity:.9}
+.v-block + .v-block{margin-top:28px}
+.v-block h4{font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.v-list{list-style:none;display:grid;gap:6px;font-size:.93rem;opacity:.92}
+.v-list li::before{content:"• ";}
+.tools{font-size:.93rem;opacity:.9}
+.aiky{margin-top:56px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:22px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.aiky h3{font-size:1.7rem;margin-bottom:12px}
+@media (max-width:900px){ .values-grid,.aiky{grid-template-columns:1fr} .aiky{padding:26px} }

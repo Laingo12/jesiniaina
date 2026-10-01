@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jesiniaina Andrianarivelo — Mon impact en action</title>
+<meta name="description" content="Jesiniaina Andrianarivelo — Directrice de SMART KIDS, CEO de NEXORIA, porteuse du projet Canadian Academy of Madagascar. Éducation, digital et IA.">
+
+<!--
+  GUIDE RAPIDE
+  • Le plus simple : le back-office, à l'adresse /admin du site (ex. https://jesiniaina.netlify.app/admin).
+  • Tout ce que le back-office modifie est enregistré dans assets/js/config.js.
+  • Attributs utilisés par le back-office (à conserver si vous modifiez le HTML) :
+      data-edit="cle"        texte modifiable  (data-label = nom affiché dans l'admin)
+      data-type="long|lines|list"  long = paragraphe · lines = retours à la ligne · list = une ligne par élément
+      data-section="cle"     bloc ; avec data-optional il peut être masqué depuis l'admin
+      data-img="chemin"      emplacement d'image
+  • Couleurs par défaut : assets/css/base/tokens.css (surchargées par l'admin si modifiées).
+  • Styles (mode sombre, finition, boutons 2D/3D, bordures, fonds, animations…) :
+    assets/css/components/styles.css, activés par theme.js via des attributs data-* sur <html>.
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/main.css">
+<script src="assets/js/config.js"></script>
+<script src="assets/js/theme.js"></script>
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<!-- ======================= SECTION : NAV ======================= -->
+<nav data-section="nav" data-section-label="Navigation">
+  <div class="wrap">
+    <a href="#top" class="brand"><span data-edit="nav.marque" data-label="Nom affiché en haut à gauche" class="brand-name">JESINIAINA</span><span>.</span></a>
+    <ul>
+      <li><a href="#realisations" data-edit="nav.realisations" data-label="Lien « Réalisations »">Réalisations</a></li>
+      <li><a href="#projets" data-edit="nav.projets" data-label="Lien « Projets IA »">Projets IA</a></li>
+      <li><a href="#formation" data-edit="nav.formation" data-label="Lien « Formation »">Formation</a></li>
+      <li><a href="#parcours" data-edit="nav.parcours" data-label="Lien « Parcours »">Parcours</a></li>
+      <li><a href="#valeurs" data-edit="nav.valeurs" data-label="Lien « Valeurs »">Valeurs</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span></button>
+    <a href="#contact" class="btn btn-primary" data-edit="nav.bouton" data-label="Bouton « Me contacter »">Me contacter</a>
+  </div>
+</nav>
+
+<!-- ======================= SECTION : HERO ======================= -->
+<header class="hero" id="top" data-section="hero" data-section-label="En-tête (hero)">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <span class="eyebrow" data-edit="hero.surtitre" data-label="Surtitre">Mon impact en action</span>
+      <h1 data-edit="hero.titre" data-label="Nom (une ligne par ligne affichée)" data-type="lines">Jesiniaina<br>Andrianarivelo</h1>
+      <p class="tagline" data-edit="hero.accroche" data-label="Phrase d'accroche" data-type="long">Je m'engage à bâtir un futur où éducation et digital ouvrent des horizons.</p>
+      <p class="lead" data-edit="hero.presentation" data-label="Présentation" data-type="long">Directrice de SMART KIDS depuis 2016, CEO de NEXORIA et porteuse du projet Canadian Academy of Madagascar : je conjugue éducation, marketing digital et intelligence artificielle pour créer un impact durable.</p>
+      <div class="hero-ctas">
+        <a href="#realisations" class="btn btn-primary" data-edit="hero.bouton-1" data-label="Bouton principal">Découvrir mon impact</a>
+        <a href="#" class="btn btn-ghost" data-link="cv" data-edit="hero.bouton-cv" data-label="Bouton CV">Télécharger mon CV</a>
+      </div>
+      <div class="hero-roles" data-edit="hero.etiquettes" data-label="Étiquettes (une par ligne)" data-type="list">
+        <span class="chip">Éducation</span>
+        <span class="chip">Digital</span>
+        <span class="chip">Impact IA</span>
+      </div>
+    </div>
+    <div class="hero-photo on-dark">
+      <div data-img="assets/images/hero/portrait.jpg" class="img-slot portrait" data-label="Portrait professionnel (celui du CV, en haute définition)" data-size="4:5 — min. 900×1125 px"></div>
+      <div class="badge"><strong data-edit="hero.badge-chiffre" data-label="Badge — chiffre">2016</strong><small data-edit="hero.badge-texte" data-label="Badge — texte">à la tête de SMART KIDS</small></div>
+    </div>
+  </div>
+</header>
+
+<!-- ======================= SECTION : CHIFFRES-CLES ======================= -->
+<section class="stats" id="chiffres" data-section="stats" data-section-label="Chiffres clés" data-optional>
+  <div class="wrap">
+    <div class="stats-title" data-edit="stats.titre" data-label="Titre">Chiffres clés</div>
+    <div class="stats-grid">
+      <div class="stat"><strong data-edit="stats.1-chiffre" data-label="Chiffre 1">120</strong><span data-edit="stats.1-texte" data-label="Chiffre 1 — légende">élèves à SMART KIDS (2024-2025)</span></div>
+      <div class="stat"><strong data-edit="stats.2-chiffre" data-label="Chiffre 2">30</strong><span data-edit="stats.2-texte" data-label="Chiffre 2 — légende">collaborateurs SMART KIDS</span></div>
+      <div class="stat"><strong data-edit="stats.3-chiffre" data-label="Chiffre 3">75</strong><span data-edit="stats.3-texte" data-label="Chiffre 3 — légende">collaborateurs formés et encadrés à SMART CENTER</span></div>
+      <div class="stat"><strong data-edit="stats.4-chiffre" data-label="Chiffre 4">7</strong><span data-edit="stats.4-texte" data-label="Chiffre 4 — légende">collaborateurs NEXORIA</span></div>
+      <div class="stat"><strong data-edit="stats.5-chiffre" data-label="Chiffre 5">2 000 €</strong><span data-edit="stats.5-texte" data-label="Chiffre 5 — légende">de budget com. mensuel géré pour nos clients</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SECTION : REALISATIONS ======================= -->
+<section id="realisations" data-section="realisations" data-section-label="Réalisations" data-optional>
+  <div class="wrap">
+    <span class="eyebrow" data-edit="realisations.surtitre" data-label="Surtitre">Réalisations entrepreneuriales</span>
+    <h2><span data-edit="realisations.titre" data-label="Titre">Trois leviers, une même mission :</span> <span class="hl" data-edit="realisations.titre-accent" data-label="Titre — partie en couleur">ouvrir des horizons.</span></h2>
+    <p class="lead" data-edit="realisations.intro" data-label="Introduction" data-type="long">L'éducation de qualité et la technologie au service des personnes : c'est le fil conducteur de chacun de mes projets.</p>
+
+    <!-- ---------- SMART KIDS ---------- -->
+    <article class="venture first" data-section="smart-kids" data-section-label="Bloc SMART KIDS" data-optional>
+      <div class="venture-media media-stack">
+        <div data-img="assets/images/smart-kids/classe.jpg" class="img-slot wide" data-label="SMART KIDS — élèves en classe" data-size="16:9 — min. 1400×790 px"></div>
+        <div data-img="assets/images/smart-kids/activite.jpg" class="img-slot square" data-label="Activité pédagogique" data-size="1:1"></div>
+        <div data-img="assets/images/smart-kids/equipe.jpg" class="img-slot square" data-label="Équipe enseignante" data-size="1:1"></div>
+      </div>
+      <div>
+        <div data-img="assets/images/logos/smart-kids.png" class="img-slot logo" data-label="Logo SMART KIDS" data-size="3:1"></div>
+        <h3 data-edit="smart-kids.nom" data-label="Nom">SMART KIDS</h3>
+        <div class="role"><span data-edit="smart-kids.poste" data-label="Poste">Directrice de l'établissement</span><time data-edit="smart-kids.dates" data-label="Dates">2016 à ce jour</time></div>
+        <p data-edit="smart-kids.description" data-label="Description" data-type="long">Une école bilingue qui prépare les enfants à évoluer dans un monde ouvert, aujourd'hui en transition vers un curriculum canadien en partenariat avec Rosedale Academy (diplôme OSSD – Ontario).</p>
+        <ul class="impact-list" data-edit="smart-kids.points" data-label="Points forts (un par ligne)" data-type="list">
+          <li>Plus de 9 ans de direction, de développement éducatif, de marketing et de communication</li>
+          <li>Passage à un modèle bilingue d'inspiration canadienne, de la maternelle au primaire</li>
+          <li>Gestion budgétaire et allocation stratégique des ressources pour la pérennité et la croissance</li>
+          <li>Digitalisation de la relation parents : chatbot « Laingo » et WhatsApp Business</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- ---------- CANADIAN ACADEMY OF MADAGASCAR ---------- -->
+    <div class="cam on-dark" data-section="cam" data-section-label="Bloc Canadian Academy of Madagascar" data-optional>
+      <div>
+        <span class="eyebrow" data-edit="cam.surtitre" data-label="Surtitre">Projet en cours</span> <span class="pill" data-edit="cam.annee" data-label="Pastille (année)">2026</span>
+        <h3 style="margin-top:12px" data-edit="cam.nom" data-label="Nom">Canadian Academy of Madagascar</h3>
+        <p data-edit="cam.description" data-label="Description" data-type="long">Je pilote la création d'une école bilingue à visée internationale, de la maternelle à la Terminale, en partenariat avec Canada Global Academy. Je mène en parallèle une recherche active de partenaires et d'investisseurs pour soutenir son expansion.</p>
+        <div class="cam-points">
+          <div class="cam-point"><strong data-edit="cam.point-1" data-label="Atout 1">2 000 m²</strong><span data-edit="cam.point-1-texte" data-label="Atout 1 — détail">Site prévu à Ivandry</span></div>
+          <div class="cam-point"><strong data-edit="cam.point-2" data-label="Atout 2">TPS → Terminale</strong><span data-edit="cam.point-2-texte" data-label="Atout 2 — détail">Déploiement progressif, classe par classe</span></div>
+          <div class="cam-point"><strong data-edit="cam.point-3" data-label="Atout 3">Canada × France</strong><span data-edit="cam.point-3-texte" data-label="Atout 3 — détail">Double culture pédagogique</span></div>
+          <div class="cam-point"><strong data-edit="cam.point-4" data-label="Atout 4">AIKY</strong><span data-edit="cam.point-4-texte" data-label="Atout 4 — détail">Scolarité gratuite pour enfants orphelins et défavorisés</span></div>
+        </div>
+      </div>
+      <div data-img="assets/images/cam/campus.jpg" class="img-slot portrait" data-label="Visuel / perspective du campus CAM (Ivandry)" data-size="4:5 — ou rendu 3D du bâtiment"></div>
+    </div>
+
+    <!-- ---------- NEXORIA ---------- -->
+    <article class="venture reverse" data-section="nexoria" data-section-label="Bloc NEXORIA" data-optional>
+      <div class="venture-media media-stack">
+        <div data-img="assets/images/nexoria/equipe.jpg" class="img-slot wide" data-label="NEXORIA — équipe ou atelier client" data-size="16:9 — min. 1400×790 px"></div>
+        <div data-img="assets/images/nexoria/plateforme.jpg" class="img-slot square" data-label="Capture : plateforme / tableau de bord IA" data-size="1:1"></div>
+        <div data-img="assets/images/nexoria/nexobot.jpg" class="img-slot square" data-label="Capture : chatbot WhatsApp NEXOBOT" data-size="1:1"></div>
+      </div>
+      <div>
+        <div data-img="assets/images/logos/nexoria.png" class="img-slot logo" data-label="Logo NEXORIA" data-size="3:1"></div>
+        <h3 data-edit="nexoria.nom" data-label="Nom">NEXORIA</h3>
+        <div class="role"><span data-edit="nexoria.poste" data-label="Poste">CEO</span><time data-edit="nexoria.dates" data-label="Dates">2023 à ce jour</time></div>
+        <p data-edit="nexoria.description" data-label="Description" data-type="long">Une agence spécialisée en marketing digital, intelligence artificielle et transformation digitale, qui accompagne des clients à Madagascar et à l'international.</p>
+        <ul class="impact-list" data-edit="nexoria.points" data-label="Points forts (un par ligne)" data-type="list">
+          <li>Plateformes et solutions IA sur mesure pour entreprises et établissements d'enseignement</li>
+          <li>Chatbots, assistants et agents IA pour automatiser la relation client et l'organisation interne</li>
+          <li>Stratégie digitale : réseaux sociaux, publicité en ligne, génération de leads, SEO/SEA</li>
+          <li>Stratégie de communication orientée ROI, pour l'agence et ses clients</li>
+          <li>Recrutement, formation et management d'une équipe de 7 collaborateurs</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= SECTION : PROJETS-IA ======================= -->
+<!-- DEV : faire valider par Jesiniaina l'affichage public des noms de clients -->
+<section class="projects" id="projets" data-section="projets" data-section-label="Projets IA" data-optional>
+  <div class="wrap">
+    <span class="eyebrow" data-edit="projets.surtitre" data-label="Surtitre">Études de cas NEXORIA</span>
+    <h2><span data-edit="projets.titre" data-label="Titre">L'IA qui sert vraiment</span> <span class="hl" data-edit="projets.titre-accent" data-label="Titre — partie en couleur">l'éducation et l'entreprise.</span></h2>
+    <div class="cards">
+      <div class="card" data-section="projet-1" data-section-label="Projet 1 (ISCAM)" data-optional>
+        <div data-img="assets/images/projets/iscam-assist.jpg" class="img-slot wide" data-label="Capture ISCAM ASSIST" data-size="16:9"></div>
+        <div class="card-body"><span class="client" data-edit="projets.1-client" data-label="Projet 1 — client">ISCAM</span><h4 data-edit="projets.1-titre" data-label="Projet 1 — titre">ISCAM ASSIST</h4><p data-edit="projets.1-texte" data-label="Projet 1 — description" data-type="long">Assistant IA déployé sur WhatsApp et le web, avec tableau de bord d'administration et relais vers un conseiller humain.</p></div>
+      </div>
+      <div class="card" data-section="projet-2" data-section-label="Projet 2 (ESCM)" data-optional>
+        <div data-img="assets/images/projets/escm.jpg" class="img-slot wide" data-label="Visuel projet ESCM" data-size="16:9"></div>
+        <div class="card-body"><span class="client" data-edit="projets.2-client" data-label="Projet 2 — client">ESCM</span><h4 data-edit="projets.2-titre" data-label="Projet 2 — titre">3 modules IA pour une école</h4><p data-edit="projets.2-texte" data-label="Projet 2 — description" data-type="long">Agent mentor étudiant, numérisation documentaire et chatbot d'appui aux enseignants, sur une infrastructure commune.</p></div>
+      </div>
+      <div class="card" data-section="projet-3" data-section-label="Projet 3 (INSCAE)" data-optional>
+        <div data-img="assets/images/projets/academic-lab.jpg" class="img-slot wide" data-label="Visuel NEXORIA Academic Lab" data-size="16:9"></div>
+        <div class="card-body"><span class="client" data-edit="projets.3-client" data-label="Projet 3 — client">INSCAE</span><h4 data-edit="projets.3-titre" data-label="Projet 3 — titre">NEXORIA Academic Lab</h4><p data-edit="projets.3-texte" data-label="Projet 3 — description" data-type="long">Tuteur IA socratique qui entraîne les étudiants en comptabilité à partir des corrigés de leurs enseignants.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SECTION : FORMATION ======================= -->
+<section id="formation" data-section="formation" data-section-label="Formation" data-optional>
+  <div class="wrap train-grid">
+    <div>
+      <span class="eyebrow" data-edit="formation.surtitre" data-label="Surtitre">Initiatives de formation</span>
+      <h2><span data-edit="formation.titre" data-label="Titre">Former, c'est</span> <span class="hl" data-edit="formation.titre-accent" data-label="Titre — partie en couleur">multiplier l'impact.</span></h2>
+      <p class="lead" style="margin-bottom:26px" data-edit="formation.intro" data-label="Introduction" data-type="long">Du centre de formation SMART CENTER aux programmes en entreprise, j'accompagne étudiants, équipes et dirigeants dans leur montée en compétences digitales.</p>
+      <div data-img="assets/images/formation/formation.jpg" class="img-slot" data-label="Photo en situation de formation" data-size="4:3 — min. 1200×900 px"></div>
+    </div>
+    <div>
+      <div class="train-block">
+        <h3><span><span data-edit="formation.issof-poste" data-label="ISSOF — poste">Formatrice en marketing digital</span> — <span class="hl" data-edit="formation.issof-nom" data-label="ISSOF — organisme">ISSOF</span></span><time data-edit="formation.issof-dates" data-label="ISSOF — dates">2022 à ce jour</time></h3>
+        <div class="clients">
+          <div class="client-item"><strong data-edit="formation.client-1" data-label="Client 1">YAS Madagascar</strong><small data-edit="formation.client-1-theme" data-label="Client 1 — thème">Personal branding</small></div>
+          <div class="client-item"><strong data-edit="formation.client-2" data-label="Client 2">Orange Digital Center</strong><small data-edit="formation.client-2-theme" data-label="Client 2 — thème">Réseaux sociaux &amp; community management</small></div>
+          <div class="client-item"><strong data-edit="formation.client-3" data-label="Client 3">G4S</strong><small data-edit="formation.client-3-theme" data-label="Client 3 — thème">Stratégie de marketing digital</small></div>
+          <div class="client-item"><strong data-edit="formation.client-4" data-label="Client 4">INTELCIA</strong><small data-edit="formation.client-4-theme" data-label="Client 4 — thème">LinkedIn</small></div>
+          <div class="client-item"><strong data-edit="formation.client-5" data-label="Client 5">SOFTY BOX</strong><small data-edit="formation.client-5-theme" data-label="Client 5 — thème">Google Ads, Analytics, SEO, KPI &amp; ROI</small></div>
+          <div class="client-item"><strong data-edit="formation.client-6" data-label="Client 6">MIARY DIGITAL</strong><small data-edit="formation.client-6-theme" data-label="Client 6 — thème">Stratégie digitale des start-up</small></div>
+          <div class="client-item"><strong data-edit="formation.client-7" data-label="Client 7">NPAKADIN</strong><small data-edit="formation.client-7-theme" data-label="Client 7 — thème">Vente en ligne &amp; outils collaboratifs</small></div>
+          <div class="client-item"><strong data-edit="formation.client-8" data-label="Client 8">Groupe Ankarana</strong><small data-edit="formation.client-8-theme" data-label="Client 8 — thème">Management de l'innovation (21 h)</small></div>
+        </div>
+      </div>
+      <div class="train-block">
+        <h3><span><span data-edit="formation.smartcenter-poste" data-label="SMART CENTER — titre">Fondatrice</span> — <span class="hl" data-edit="formation.smartcenter-nom" data-label="SMART CENTER — nom">SMART CENTER, devenu NEXORIA</span></span><time data-edit="formation.smartcenter-dates" data-label="SMART CENTER — dates">2021 à 2023</time></h3>
+        <ul class="impact-list" data-edit="formation.smartcenter-points" data-label="SMART CENTER — points (un par ligne)" data-type="list">
+          <li>Externalisation (BPO) et réception d'appels</li>
+          <li>Formations en GRC, techniques d'appel, développement personnel et marketing digital</li>
+          <li>Recrutement pour les centres d'appels (CONNECTEO, INTELCIA, SETEX…)</li>
+          <li>75 collaborateurs formés et encadrés</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SECTION : PARCOURS ======================= -->
+<section class="parcours" id="parcours" data-section="parcours" data-section-label="Parcours" data-optional>
+  <div class="wrap">
+    <span class="eyebrow" data-edit="parcours.surtitre" data-label="Surtitre">Carrière &amp; parcours académique</span>
+    <h2><span data-edit="parcours.titre" data-label="Titre">Une trajectoire construite</span> <span class="hl" data-edit="parcours.titre-accent" data-label="Titre — partie en couleur">pas à pas.</span></h2>
+    <div class="legend"><span>Expérience</span><span class="edu">Formation</span></div>
+    <div class="timeline">
+      <div class="t-item"><div class="t-year" data-edit="parcours.1-date" data-label="Étape 1 — date">2026</div><h4 data-edit="parcours.1-titre" data-label="Étape 1 — titre">Pilotage du projet Canadian Academy of Madagascar</h4><p data-edit="parcours.1-texte" data-label="Étape 1 — détail">École bilingue à visée internationale et programme social AIKY.</p></div>
+      <div class="t-item"><div class="t-year" data-edit="parcours.2-date" data-label="Étape 2 — date">2023 – aujourd'hui</div><h4 data-edit="parcours.2-titre" data-label="Étape 2 — titre">CEO — NEXORIA</h4><p data-edit="parcours.2-texte" data-label="Étape 2 — détail">Agence marketing digital, IA et transformation digitale.</p></div>
+      <div class="t-item"><div class="t-year" data-edit="parcours.3-date" data-label="Étape 3 — date">2022 – aujourd'hui</div><h4 data-edit="parcours.3-titre" data-label="Étape 3 — titre">Formatrice en marketing digital — ISSOF</h4><p data-edit="parcours.3-texte" data-label="Étape 3 — détail">Formations pour YAS, Orange Digital Center, G4S, INTELCIA…</p></div>
+      <div class="t-item"><div class="t-year" data-edit="parcours.4-date" data-label="Étape 4 — date">2021 – 2023</div><h4 data-edit="parcours.4-titre" data-label="Étape 4 — titre">Fondatrice — SMART CENTER</h4><p data-edit="parcours.4-texte" data-label="Étape 4 — détail">Centre de formation, BPO et recrutement pour centres d'appels.</p></div>
+      <div class="t-item"><div class="t-year" data-edit="parcours.5-date" data-label="Étape 5 — date">2016 – aujourd'hui</div><h4 data-edit="parcours.5-titre" data-label="Étape 5 — titre">Directrice — SMART KIDS</h4><p data-edit="parcours.5-texte" data-label="Étape 5 — détail">Direction, développement éducatif, marketing et communication.</p></div>
+      <div class="t-item"><div class="t-year" data-edit="parcours.6-date" data-label="Étape 6 — date">2013 – 2015</div><h4 data-edit="parcours.6-titre" data-label="Étape 6 — titre">Responsable Marketing &amp; Communication — SODIM</h4></div>
+      <div class="t-item edu"><div class="t-year" data-edit="parcours.7-date" data-label="Étape 7 (diplôme) — date">2012</div><h4 data-edit="parcours.7-titre" data-label="Étape 7 (diplôme) — titre">Master en Management International — IAE Poitiers / INSCAE</h4></div>
+      <div class="t-item"><div class="t-year" data-edit="parcours.8-date" data-label="Étape 8 — date">2012</div><h4 data-edit="parcours.8-titre" data-label="Étape 8 — titre">Consultante, projet de coopération décentralisée — Aide et Action</h4></div>
+      <div class="t-item"><div class="t-year" data-edit="parcours.9-date" data-label="Étape 9 — date">2011</div><h4 data-edit="parcours.9-titre" data-label="Étape 9 — titre">Responsable média — Grand Angle</h4></div>
+      <div class="t-item edu"><div class="t-year" data-edit="parcours.10-date" data-label="Étape 10 (diplôme) — date">2009</div><h4 data-edit="parcours.10-titre" data-label="Étape 10 (diplôme) — titre">Master en Marketing et Communication — ISCAM</h4></div>
+      <div class="t-item edu"><div class="t-year" data-edit="parcours.11-date" data-label="Étape 11 (diplôme) — date">2004</div><h4 data-edit="parcours.11-titre" data-label="Étape 11 (diplôme) — titre">Baccalauréat technologique général — ESCA</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SECTION : VALEURS ======================= -->
+<section class="values on-dark" id="valeurs" data-section="valeurs" data-section-label="Valeurs &amp; engagements" data-optional>
+  <div class="wrap">
+    <div class="values-grid">
+      <div>
+        <span class="eyebrow" data-edit="valeurs.surtitre" data-label="Surtitre">Entrepreneure guidée par la foi</span>
+        <p class="verse" data-edit="valeurs.verset" data-label="Citation / verset" data-type="long">« Confie-toi en l'Éternel… Et il aplanira tes sentiers »</p>
+        <p class="verse-ref" data-edit="valeurs.verset-ref" data-label="Référence de la citation">Proverbes 3:5-6</p>
+        <h4 style="font-size:.9rem;letter-spacing:.1em;text-transform:uppercase">Valeurs</h4>
+        <div class="value-chips" data-edit="valeurs.valeurs" data-label="Valeurs (une par ligne)" data-type="list"><span>Entraide</span><span>Intégrité</span><span>Persévérance</span></div>
+        <h4 style="font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">Mission</h4>
+        <p data-edit="valeurs.mission" data-label="Mission" data-type="long">Avec foi et conviction, j'œuvre à travers l'éducation pour favoriser l'essor et l'impact positif des générations à venir.</p>
+      </div>
+      <div>
+        <div class="v-block">
+          <h4>Soft skills</h4>
+          <ul class="v-list" data-edit="valeurs.soft-skills" data-label="Soft skills (une par ligne)" data-type="list">
+            <li>Esprit entrepreneurial</li><li>Networking stratégique</li><li>Leadership chrétien</li><li>Vision stratégique</li>
+            <li>Créativité et innovation</li><li>Communication agile et transformation digitale</li><li>Innovation pédagogique</li>
+          </ul>
+        </div>
+        <div class="v-block">
+          <h4>Outils collaboratifs &amp; digitaux</h4>
+          <p class="tools" data-edit="valeurs.outils" data-label="Outils" data-type="long">Meta Business · Google Ads · Jira · Trello · Slack · Miro · Notion · ClickUp · Teams</p>
+        </div>
+        <div class="v-block">
+          <h4>Engagements</h4>
+          <ul class="v-list" data-edit="valeurs.engagements" data-label="Engagements (un par ligne)" data-type="list">
+            <li>Présidente SETELA S1T1 FJKM (sehatra teolozika ho an'ny laika)</li>
+            <li>Sampana Sekoly Alahady FJKM Atsimon'i Mahamasina</li>
+            <li>Membre du JPM — Jeune Patronat de Madagascar</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- AIKY -->
+    <div class="aiky" data-section="aiky" data-section-label="Bloc AIKY" data-optional>
+      <div data-img="assets/images/aiky/aiky.jpg" class="img-slot" data-label="Photo programme AIKY (avec accord des familles)" data-size="4:3"></div>
+      <div>
+        <span class="eyebrow" data-edit="aiky.surtitre" data-label="Surtitre">Mission sociale</span>
+        <h3 data-edit="aiky.titre" data-label="Titre">AIKY : l'école pour tous les enfants.</h3>
+        <p data-edit="aiky.texte" data-label="Texte" data-type="long">Un programme qui permet aux enfants défavorisés et orphelins d'être scolarisés gratuitement au sein de la Canadian Academy of Madagascar. Parce que l'impact se mesure aussi à ceux qu'on n'oublie pas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SECTION : TEMOIGNAGES ======================= -->
+<section id="temoignages" data-section="temoignages" data-section-label="Témoignages" data-optional>
+  <div class="wrap">
+    <span class="eyebrow" data-edit="temoignages.surtitre" data-label="Surtitre">Ils en parlent</span>
+    <h2 data-edit="temoignages.titre" data-label="Titre">Témoignages</h2>
+    <div class="quotes">
+      <div class="quote" data-section="temoin-1" data-section-label="Témoignage 1" data-optional><p data-edit="temoignages.1-texte" data-label="Témoignage 1 — citation" data-type="long">« [Témoignage d'un parent d'élève SMART KIDS] »</p><div class="who"><div data-img="assets/images/temoignages/temoin-1.jpg" class="img-slot" data-label="Témoignage 1 — photo" data-size="1:1"></div><div><strong data-edit="temoignages.1-nom" data-label="Témoignage 1 — nom">[Nom]</strong><br><span data-edit="temoignages.1-role" data-label="Témoignage 1 — fonction">Parent d'élève</span></div></div></div>
+      <div class="quote" data-section="temoin-2" data-section-label="Témoignage 2" data-optional><p data-edit="temoignages.2-texte" data-label="Témoignage 2 — citation" data-type="long">« [Témoignage d'un client NEXORIA] »</p><div class="who"><div data-img="assets/images/temoignages/temoin-2.jpg" class="img-slot" data-label="Témoignage 2 — photo" data-size="1:1"></div><div><strong data-edit="temoignages.2-nom" data-label="Témoignage 2 — nom">[Nom]</strong><br><span data-edit="temoignages.2-role" data-label="Témoignage 2 — fonction">[Fonction, organisation]</span></div></div></div>
+      <div class="quote" data-section="temoin-3" data-section-label="Témoignage 3" data-optional><p data-edit="temoignages.3-texte" data-label="Témoignage 3 — citation" data-type="long">« [Témoignage d'un participant à une formation] »</p><div class="who"><div data-img="assets/images/temoignages/temoin-3.jpg" class="img-slot" data-label="Témoignage 3 — photo" data-size="1:1"></div><div><strong data-edit="temoignages.3-nom" data-label="Témoignage 3 — nom">[Nom]</strong><br><span data-edit="temoignages.3-role" data-label="Témoignage 3 — fonction">[Entreprise]</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SECTION : CONTACT ======================= -->
+<section class="contact" id="contact" data-section="contact" data-section-label="Contact" data-optional>
+  <div class="wrap">
+    <h2 data-edit="contact.titre" data-label="Titre">Construisons le prochain impact ensemble.</h2>
+    <p class="lead" data-edit="contact.texte" data-label="Texte" data-type="long">Partenariat éducatif, investissement dans la CAM, projet IA, formation ou opportunité professionnelle : parlons-en.</p>
+    <div class="contact-ctas">
+      <a href="#" data-link="email" data-link-text class="btn btn-white">jesiniaina@nexoria.com</a>
+      <a href="#" data-link="whatsapp" class="btn btn-ghost-white">WhatsApp</a>
+      <a href="#" class="btn btn-ghost-white" data-link="linkedin">LinkedIn</a>
+    </div>
+    <p class="contact-info" data-edit="contact.infos" data-label="Ligne téléphone / ville">+261 34 71 608 58 · Antananarivo, Madagascar</p>
+  </div>
+</section>
+
+<!-- ======================= SECTION : FOOTER ======================= -->
+<footer data-section="footer" data-section-label="Pied de page">
+  <div class="wrap">
+    <span data-edit="footer.slogan" data-label="Slogan">Des idées d'aujourd'hui, un meilleur demain</span>
+    <span class="motto" data-edit="footer.devise" data-label="Devise">Apprendre • Innover • Transformer</span>
+  </div>
+</footer>
+
+<!-- Applique les textes et sections choisis dans le back-office (avant l'affichage) -->
+<script src="assets/js/content.js"></script>
+<script src="assets/js/nav.js" defer></script>
+<script src="assets/js/image-slots.js" defer></script>
+<script src="assets/js/reveal.js" defer></script>
+<script src="assets/js/links.js" defer></script>
+<script src="assets/js/extras.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

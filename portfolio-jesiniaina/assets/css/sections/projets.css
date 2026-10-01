@@ -1,0 +1,11 @@
+/* PROJETS IA */
+.projects{background:var(--lavender)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.card{background:var(--surface);border:var(--bw) var(--bs) var(--border-color);border-radius:var(--radius);overflow:hidden}
+.card .img-slot{border-radius:0;border-width:0 0 2px 0}
+.card-body{padding:22px 22px 26px}
+.card .client{font-size:.76rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700;color:var(--accent-text)}
+.card h4{font-size:1.15rem;margin:6px 0 10px}
+.card p{font-size:.92rem;color:var(--ink-soft)}
+@media (max-width:900px){ .cards{grid-template-columns:1fr 1fr} }
+@media (max-width:600px){ .cards{grid-template-columns:1fr} }
