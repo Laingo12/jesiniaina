@@ -68,5 +68,5 @@ window.SITE_CONFIG = {
     "temoignages/temoin-2": "",
     "temoignages/temoin-3": ""
   },
-  "publishedAt": "2026-10-01T12:03:14.605Z"
+  "publishedAt": "2026-10-01T12:07:40.651Z"
 };
