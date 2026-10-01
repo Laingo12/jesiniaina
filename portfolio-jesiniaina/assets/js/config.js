@@ -13,7 +13,7 @@ window.SITE_CONFIG = {
   "email": "jesiniaina@nexoria.com",
   "whatsapp": "261347160858",
   "theme": {
-    "violet": "#ad8514",
+    "violet": "#6f5aaa",
     "violetDark": "",
     "violetSoft": "",
     "indigo": "",
@@ -49,11 +49,11 @@ window.SITE_CONFIG = {
   "sections": {},
   "texts": {},
   "images": {
-    "hero/portrait": "",
+    "hero/portrait": "portrait.jpeg",
     "smart-kids/classe": "",
     "smart-kids/activite": "",
     "smart-kids/equipe": "",
-    "logos/smart-kids": "",
+    "logos/smart-kids": "smartkids.png",
     "cam/campus": "",
     "nexoria/equipe": "",
     "nexoria/plateforme": "",
@@ -67,5 +67,6 @@ window.SITE_CONFIG = {
     "temoignages/temoin-1": "",
     "temoignages/temoin-2": "",
     "temoignages/temoin-3": ""
-  }
+  },
+  "publishedAt": "2026-10-01T12:03:14.605Z"
 };
