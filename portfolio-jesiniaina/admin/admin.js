@@ -83,8 +83,20 @@ function GitHubBackend(repo, branch, token) {
   return {
     kind: "github", label: repo + (branch !== "main" ? " (" + branch + ")" : ""),
     check: async function () {
-      var info = await gh("");
-      await gh("/git/ref/heads/" + enc(branch));   // la branche existe ?
+      var info;
+      try { info = await gh(""); }
+      catch (e) {
+        if (e.status === 404) e.message = "Le dépôt « " + repo + " » est introuvable avec ce jeton. Vérifiez : 1) le nom exact du compte et du dépôt ; " +
+          "2) que le jeton a bien accès à ce dépôt (Repository access → Only select repositories → " + repo.split("/")[1] + ") ; " +
+          "3) que le jeton a été créé APRÈS le dépôt, sinon modifiez-le pour ajouter le dépôt.";
+        throw e;
+      }
+      try { await gh("/git/ref/heads/" + enc(branch)); }
+      catch (e) {
+        if (e.status === 404 || e.status === 409) e.message = "Le dépôt est trouvé, mais la branche « " + branch + " » n'existe pas : le dépôt est sans doute encore vide. " +
+          "Envoyez d'abord les fichiers du portfolio sur GitHub (« uploading an existing file »), puis reconnectez-vous.";
+        throw e;
+      }
       return info;
     },
     readText: async function (p) { return (await gh("/contents/" + enc(rp(p)) + q, { accept: "application/vnd.github.raw+json", raw: true })).text(); },

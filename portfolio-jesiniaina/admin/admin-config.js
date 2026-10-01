@@ -8,7 +8,7 @@
    siteUrl : adresse publique, utilisée pour suivre la mise en ligne
    ============================================================ */
 window.ADMIN_CONFIG = {
-  repo: "",
+  repo: "Laingo12/jesiniaina",
   branch: "main",
   root: "",
   siteUrl: "https://jesiniaina.netlify.app"
